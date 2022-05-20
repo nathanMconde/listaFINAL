@@ -21,6 +21,6 @@ void preenche(int *vet, int tam, int n)
 
     for (int i = 0; i < tam; i++)
     {
-        cout <<*(vet + 1)<<endl;;
+        cout <<*(vet + 1)<<endl;
     }
 }
