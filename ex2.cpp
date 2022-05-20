@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <iostream>
+using namespace std;
 
 void pFloat(float *p);
 void pFloat(float *p, int *TAM);
