@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "arq.h"
-void copiar(FILE *file, FILE *file2);
 
 char main()
 {
@@ -11,8 +10,7 @@ char main()
     char vogais[] = "aeiouAEIOU";
     int i = 0;
     char aux;
-    char carac = '*';
-    while ((ler[i] = fgetc(ler)) != EOF)
+    while ((ler[i] = fgetc(file)) != EOF)
     {
         i++;
     }
@@ -24,20 +22,15 @@ char main()
             if (ler[i] == vogais[j])
             {
                 aux = ler[i];
-                ler[i] = carac;
+                ler[i] = '*';
             }
         }
     }
 
-    FILE *file2 = fopen("arquivoex13B.txt", "w");
-
-    while (fgets(ler, 100, file) != NULL)
-    {
-        fputs(ler, file2);
-    }
+    FILE *file1 = fopen("arquivoex13B.txt", "w");
+    fputs(ler, file1);
 
     fclose(file);
-    fclose(file2);
-
+    fclose(file1);
     return 0;
 }
