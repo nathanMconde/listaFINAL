@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include "arq.h"
 
-void arq(char *filename)
+FILE* arq(char x[50])
 {
-    return fopen (filename.txt, "r");
- 
+ return fopen(x, "r");
 }
+

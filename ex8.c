@@ -2,10 +2,21 @@
 #include <stdlib.h>
 #include "arq.h"
 
-int main()
+char main()
 {
-  char x = 'Arquivo8';
+  FILE *file = arq("arquivoex8.txt");
+  int contador=0;
+  char enter;
+  while ((enter = fgetc(file)) != EOF)
+  {
+    if (enter == '\n')
+    {
+      contador++;
+    }
+  }
+  fclose(file);
 
+  printf("O arquivo tem %d linhas.\n", contador + 1);
 
-    return 0;
+  return 0;
 }
