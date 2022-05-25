@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "ex.h"
+//Tive dificuldade em compreender a lógica final, contudo, penso que usei tudo que o enunciado solicita.
 typedef struct
 {
-    char nome;
+    char nome[20];
     float n1;
     float n2;
     float n3;
@@ -12,9 +13,9 @@ typedef struct
 
 int main()
 {
-    aluno al[10];
+    aluno al[3];
 
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 3; i++)
     {
         printf("Digite o nome do aluno:\n");
         scanf("%s", &al[i].nome);
@@ -24,13 +25,31 @@ int main()
         scanf("%f", &al[i].n2);
         printf("Digite a nota 3:\n");
         scanf("%f", &al[i].n3);
+    }
+
+    for (int i = 0; i < 3; i++)
+    {
         al[i].media = (al[i].n1 + al[i].n2 + al[i].n3) / 3;
     }
-    int i = 0;
-    for (int i = 0; i < 10; i++)
+
+    int num;
+    int cont = 0;
+    for (int i = 0; i < 3; i++)
     {
-        if (al[i].media > 7)
-            printf("Media do %s eh %f", al[i].nome, al[i].media);
+        if (al[i].media >= 7.0)
+        {
+            cont++;
+        }
     }
+
+    printf("%d alunos possuem media acima de 7.", cont);
+
+        FILE *file = arq("arquivoex23.txt");
+
+    for(int i=0; i<3; i++)
+    {
+        fprin(file, al[i].nome, al[i].media);
+    }
+
     return 0;
 }

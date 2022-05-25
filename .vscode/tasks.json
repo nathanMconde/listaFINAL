@@ -8,6 +8,7 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "aloca.h",
+                "ex.h",
                 "arq.h",
                 "${file}",
                 "-o",

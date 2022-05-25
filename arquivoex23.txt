@@ -1,0 +1,3 @@
+lucas tem a nota final de = 5.00
+joao tem a nota final de = 2.00
+kaio tem a nota final de = 7.00
