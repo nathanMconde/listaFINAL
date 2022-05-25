@@ -1,25 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main()
 {
-    FILE *file = fopen("arquivoex19.txt", "w");
-    char nome[50];
-    int numero;
-    int op;
-    if (file != NULL)
+    FILE *file = fopen("arquivoex16A.txt", "r");
+    char cidade;
+    char numero;
+    int maior = 0;
+    char cidades;
+
+    while (fscanf(file, "%s %s", cidade, numero) != EOF)
     {
-        do
+        if (atoi(numero) > maior)
         {
-
-            printf("Digite nome e telefone\n");
-            scanf("%s %d", &nome, &numero);
-            fprintf(file, "%s %d \n", nome, numero);
-            printf("\nPara encerrar digite 0, para registrar outro contato digite 1.\n");
-            scanf("%d", &op);
-
-        } while (op == 1);
+            maior = atoi(numero);
+            cidades = cidade;
+        }
     }
+
+    printf("A maior cidade eh %s com a populaçao de %d", cidades, maior);
+
     fclose(file);
 
     return 0;
