@@ -13,9 +13,9 @@ typedef struct
 
 int main()
 {
-    aluno al[3];
+    aluno al[10];
 
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 10; i++)
     {
         printf("Digite o nome do aluno:\n");
         scanf("%s", &al[i].nome);
@@ -27,14 +27,14 @@ int main()
         scanf("%f", &al[i].n3);
     }
 
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 10; i++)
     {
         al[i].media = (al[i].n1 + al[i].n2 + al[i].n3) / 3;
     }
 
     int num;
     int cont = 0;
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 10; i++)
     {
         if (al[i].media >= 7.0)
         {
