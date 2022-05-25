@@ -1,29 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-typedef struct
-{
-    char nome;
-    char dia, mes, ano;
-} dat;
+#include "arq.h"
 
 int main()
 {
-    FILE *file = fopen("arquivoex20.txt", "r");
+    FILE *file = arq("arquivoex20.txt");
     int diaatual = 24, mesatual = 5, anoatual = 2022;
-    dat data;
+    int dia, mes, ano;
+    char nome[20];
 
-    while (file != EOF)
-    {
-        fscanf(file, "%s %d %d %d", data.nome, data.dia, data.mes, data.ano);
-    }
+    fscanf(file, "%s %d %d %d", nome, &dia, &mes, &ano);
+    printf("%s %d %d %d\n", nome, dia, mes, ano);
 
-    int idade = 365 * anoatual + 30 * mesatual + diaatual - 365 * data.ano - 30 * data.mes - data.dia;
+    int idade = 365 * anoatual + 30 * mesatual + diaatual - 365 * ano - 30 * mes - dia;
 
-    printf("%s possui %d anos", data.nome, idade);
+    ano = idade / 365;
+    idade = idade % 365;
+
+    mes = idade / 30;
+    idade = idade % 30;
+
+    dia = idade;
+
+    FILE *file1 = fopen("arquivoex20B.txt", "w");
+    fprintf(file1, ("%s possui %d dias %d meses e %d anos"), nome, dia, mes, ano);
 
     fclose(file);
-
+    fclose(file1);
     return 0;
 }
