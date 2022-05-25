@@ -1,24 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main()
 {
     FILE *file = fopen("arquivoex19.txt", "w");
     char nome[50];
     int numero;
-    int op;
-    if (file != NULL)
+
+    while (file != NULL)
     {
-        do
-        {
-
-            printf("Digite nome e telefone\n");
-            scanf("%s %d", &nome, &numero);
-            fprintf(file, "%s %d \n", nome, numero);
-            printf("\nPara encerrar digite 0, para registrar outro contato digite 1.\n");
-            scanf("%d", &op);
-
-        } while (op == 1);
+        printf("Digite o nome do novo contato e o seu numero:\n");
+        scanf("%s %d", &nome, &numero);
+        if (numero != 0)
+            fprintf(file, "Contato %s = %d \n", nome, numero);
+        else if(numero == 0)
+            {
+                exit(1);
+            }
     }
     fclose(file);
 
