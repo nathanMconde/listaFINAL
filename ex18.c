@@ -55,16 +55,28 @@ char main()
         }
     }
 
+    int n;
+    int j = 0;
     int contadorl = 0;
-    char letra[100];
-     for (int i = 0; i < strlen(ler); i++)
-    {    letra[i] = ler[i];
-        for (int j = 0; j < strlen(letra); j++)
+    for (j = 0; ler[j]; j++)
+        n = j;
+
+    for (i = 0; i < n; i++)
+    {
+        int contadorl = 1;
+        if (ler[i])
         {
-            if (letra[j] == ler[i])
+
+            for (j = i + 1; j < n; j++)
             {
-                contadorl++;
+
+                if (ler[i] == ler[j])
+                {
+                    contadorl++;
+                    ler[j] = '\0';
+                }
             }
+            printf("A letra '%c' se repete %d vezes.\n", ler[i], contadorl);
         }
     }
 
@@ -73,7 +85,6 @@ char main()
     printf("O arquivo tem %d linhas.\n", contador + 1);
     printf("O arquivo tem %d caracteres.\n", contadorP);
     printf("O arquivo tem %d palavras.\n", contadorPa);
-    printf("O arquivo tem %d letras repetidas:", contadorl);
 
     return 0;
 }

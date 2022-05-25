@@ -5,23 +5,27 @@
 int main()
 {
     FILE *file = fopen("arquivoex16A.txt", "r");
-    char cidade;
-    char numero;
+    char cidade[40];
+    int numero;
     int maior = 0;
-    char cidades;
+    char cidades[40];
+    int i = 0;
 
-    while (fscanf(file, "%s %s", cidade, numero) != EOF)
+    while (fscanf(file, "%s %d", &cidade, &numero) != EOF)
     {
-        if (atoi(numero) > maior)
+        if (numero > maior)
         {
-            maior = atoi(numero);
-            cidades = cidade;
+            maior = numero;
+            strcpy(cidades, cidade);
         }
     }
 
-    printf("A maior cidade eh %s com a populaçao de %d", cidades, maior);
+    printf("%s %d", cidades, maior);
 
+    FILE *file1 = fopen("arquivoex16B", "w");
+    fprintf(file1, "%s %d", cidades, maior);
     fclose(file);
+    fclose(file1);
 
     return 0;
 }
