@@ -76,7 +76,7 @@ char main()
                     ler[j] = '\0';
                 }
             }
-            printf("A letra '%c' se repete %d vezes.\n", ler[i], contadorl);
+            printf("A letra %c se repete %d vezes.\n", ler[i], contadorl);
         }
     }
 
